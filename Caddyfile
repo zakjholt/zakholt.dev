@@ -1,0 +1,29 @@
+books.zakholt.dev {
+    reverse_proxy judy:13378
+}
+
+radarr.zakholt.dev {
+    reverse_proxy judy:7878
+}
+
+sonarr.zakholt.dev {
+    reverse_proxy judy:8989
+}
+
+lidarr.zakholt.dev {
+    reverse_proxy judy:8686
+}
+
+readarr.zakholt.dev {
+    reverse_proxy judy:8787
+}
+
+zakholt.dev {
+    root static
+    file_server
+}
+
+www.zakholt.dev {
+    root static
+    file_server
+}

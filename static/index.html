@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zak holt</title>
+
+    <link rel="stylesheet" href="/static/styles/main.css" />
+</head>
+
+<body>
+  <nav>
+      <div class="content">
+          <a class="brand" href="#top">
+              Zak
+          </a>
+
+          <a class="button" href="mailto:zak@zakholt.dev">
+              let's talk!
+          </a>
+      </div>
+  </nav>
+
+  <header id="top">
+      <div class="content flex flex-column md-flex-row-reverse justify-between align-center flex-gap-lg">
+          <img src="/static/images/programmer.gif" width="400" />
+          <div>
+              <h1>Zak Holt</h1>
+              <h3>freelance web dev</h3>
+          </div>
+
+      </div>
+  </header>
+
+  <section id="work">
+      <div class="flex justify-between content flex-column space-y-lg">
+          <div class="flex flex-gap-md flex-column md-flex-row">
+              <div class="flex-1">
+                  <h4 class="color-primary-dark">
+                      sites, apps, and apis, oh my!
+                  </h4>
+
+                  <p class="space-y-sm">
+                      I've been lucky to work with and learn from some smart people over the years. Each has been an
+                      exciting chance to build something great.
+                  </p>
+
+                  <p>Whatever your project is, be it a personal website or a fully fledged SaaS product, I can help
+                      you build it!
+                  </p>
+
+              </div>
+
+
+              <div class="quotes space-y-md flex-1 hidden md-block">
+                  <q data-attrib="technical coworker" class="space-y-md">
+                      Keeps the project tidy, <em>avoids excess complexity</em>, which is great.
+                  </q>
+                  <q data-attrib="non-techincal coworker" class="space-y-md">
+                      Excellent communicator for external teams, <em>empathetic and dependable.</em>
+                  </q>
+                  <q data-attrib="personal friend" class="space-y-md">
+                      He knows quite a bit about the web, though his <em>cribbage scoring may be sub-par.</em>
+                  </q>
+              </div>
+          </div>
+
+          <div class="space-y-lg hidden md-block"></div>
+
+          <ul class="flex-1 img-list space-y-lg">
+              <li class="flex flex-column">
+                  <div>
+                    <img src="/static/images/pawp.svg" alt="Pawp Inc">
+                  </div>
+                  <p class="space-y-md">
+                      I head up the web team at Pawp; building intuitive tooling for veterinarians to provide
+                      real-time care to members through video and text chats. We work hard to iterate and improve on a
+                      product which helps people
+                      tak better care of their pets.
+                  </p>
+              </li>
+              <li class="flex flex-column">
+                  <div>
+                    <img src="/static/images/enlitic.webp" alt="Enlitic">
+                  </div>
+                  <p class="space-y-md">
+                      I worked as a full-stack and devops engineer at Enlitic, building out a
+                      computer vision powered tool to augment radiologists' workflows, along with deployment
+                      strategies to stand up our suite in any hospital with a single command.
+                  </p>
+              </li>
+              <li class="flex flex-column">
+                  <div>
+                    <img src="/static/images/aircall.png" alt="Aircall">
+                  </div>
+                  <p class="space-y-md">
+                      I led the product engineering team at Aircall, meeting often with external
+                      stakeholders to plan and scope projects, after which I'd get to work with my full-stack team
+                      implementing the customer admin dashboard.
+                  </p>
+              </li>
+          </ul>
+      </div>
+  </section>
+
+  <section id="about">
+      <div class="flex content flex-column flex-gap-lg">
+          <h2>about</h2>
+
+          <div class="flex flex-column md-flex-row flex-gap-lg">
+              <div class="flex flex-column flex-gap-md">
+                  <h4 class="color-accent-light">me</h4>
+                  <p>
+                      <i>🛠️</i> Full-stack web developer that loves helping people bring their ideas into
+                      reality.
+                  </p>
+                  <p>
+                      <i>📓</i> Lifelong learner; there's always something I don't know.
+                  </p>
+                  <p>
+                      <i>📈</i> I'm always open to taking on new projects, and digging in with new technologies
+                  </p>
+              </div>
+
+              <div class="flex flex-column flex-gap-md">
+                  <h4 class="color-accent-light">my technologies</h4>
+                  <p>
+                      <i>🖼️</i> I use Typescript and React to create maintainable frontend apps, or for rapid
+                      prototyping of fullstack apps
+                  </p>
+                  <p>
+                      <i>⚙️</i> I use Go, Elixir, or Python to create clean, stable backends.
+                  </p>
+              </div>
+          </div>
+
+          <h3 class="text-center color-primary-light">If it's possible on the web, I can help!</h3>
+
+      </div>
+  </section>
+
+  <section id="contact">
+      <div class="content-tight">
+          <h2>get in touch</h2>
+
+          <form 
+            class="flex flex-column flex-gap-sm space-y-md"
+            hx-post="/api/collections/leads/records"
+            hx-target="#contact > .content-tight"
+            hx-ext="json-enc, client-side-templates"
+            mustache-template="contact_submit_response"
+          >
+              <label for="name">
+                  your name*
+              </label>
+              <input type="text" name="name" id="name" required />
+
+              <label for="email">
+                  your email*
+              </label>
+              <input type="email" name="email" id="email" required />
+
+              <label for="details">
+                  tell me about it
+              </label>
+              <textarea name="details" id="details" rows="4"></textarea>
+
+              <button class="space-y-sm button" type="submit">submit</button>
+          </form>
+      </div>
+  </section>
+
+    <template id="contact_submit_response">
+      <h2>🥳 Great!</h2>
+      <p class="space-y-lg">I'll be in touch soon.</p>
+    </template>
+
+  <footer>
+      <div class="content">
+          <h2 x-data="{text:`Zak Holt &copy; ${new Date().getFullYear()}`}" x-text="text"></h2>
+      </div>
+  </footer>
+
+
+
+    <script src="https://unpkg.com/htmx.org@1.9.2"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://unpkg.com/htmx.org/dist/ext/client-side-templates.js"></script>
+    <script defer src="https://unpkg.com/mustache@latest"></script>
+</body>
+
+</html>

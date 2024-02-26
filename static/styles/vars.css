@@ -1,0 +1,9 @@
+:root {
+    --primary-light: #8ECAE6;
+    --primary-mid: #219EBC;
+    --primary-dark: #023047;
+    --accent-light: #FFB703;
+    --accent-dark: #FB8500;
+
+    --nav-height: 48px;
+}
