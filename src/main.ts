@@ -8,6 +8,9 @@ document
       e.preventDefault();
       const href = anchor.getAttribute("href");
       if (href) {
+        // Update URL without triggering scroll
+        history.pushState(null, "", href);
+
         const target = document.querySelector(href);
         if (target) {
           target.scrollIntoView({
@@ -25,20 +28,21 @@ const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
 // Update active navigation link
 const observerOptions = {
   root: null,
-  rootMargin: "-20% 0px",
-  threshold: 0,
+  rootMargin: "-40% 0px -50% 0px",
+  threshold: [0, 1],
 };
 
 const observerCallback: IntersectionObserverCallback = (entries) => {
   entries.forEach((entry) => {
+    const currentId = entry.target.id;
+    const correspondingLink = document.querySelector(
+      `.nav-link[data-section="${currentId}"]`
+    );
+
     if (entry.isIntersecting) {
-      const currentId = entry.target.id;
       navLinks.forEach((link) => link.classList.remove("active"));
-      const activeNavLink = document.querySelector(
-        `.nav-link[data-section="${currentId}"]`
-      );
-      if (activeNavLink) {
-        activeNavLink.classList.add("active");
+      if (correspondingLink) {
+        correspondingLink.classList.add("active");
       }
     }
   });
@@ -49,6 +53,24 @@ const observer = new IntersectionObserver(observerCallback, observerOptions);
 sections.forEach((section) => {
   observer.observe(section);
 });
+
+// Handle initial hash in URL
+const initialHash = window.location.hash;
+if (initialHash) {
+  const targetSection = document.querySelector(initialHash);
+  if (targetSection) {
+    setTimeout(() => {
+      targetSection.scrollIntoView({ behavior: "smooth" });
+      const correspondingLink = document.querySelector(
+        `.nav-link[data-section="${initialHash.slice(1)}"]`
+      );
+      if (correspondingLink) {
+        navLinks.forEach((link) => link.classList.remove("active"));
+        correspondingLink.classList.add("active");
+      }
+    }, 100);
+  }
+}
 
 // Form handling
 const contactForm = document.getElementById("contact-form") as HTMLFormElement;
