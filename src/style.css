@@ -60,12 +60,14 @@ body {
 
 .hero-title {
   @apply text-6xl sm:text-7xl font-black;
-  text-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.hero-title span {
+  text-shadow: 2px 2px 0 var(--shadow-color);
 }
 
 .section-title {
   @apply text-4xl font-black mb-12;
-  text-shadow: 3px 3px 0 var(--shadow-color);
 }
 
 .skill-tag {
