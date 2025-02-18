@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neubrutalist Components | Zak Holt</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  </head>
+  <body class="font-['Space_Grotesk']">
+    <nav class="nav-container">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16 items-center">
+            <a href="#" class="text-2xl font-black" aria-label="Home">ZH</a>
+            <div class="hidden sm:flex space-x-8" role="navigation" aria-label="Main navigation">
+              <a href="#about" class="nav-link" data-section="about">About</a>
+              <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+              <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+              <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+    <div class="flex min-h-screen">
+      <!-- Tree Navigation Sidebar -->
+      <aside class="w-64 fixed top-16 bottom-0 border-r-4 border-black bg-white overflow-y-auto">
+        <nav class="p-4 pb-24" role="navigation" aria-label="Component navigation">
+          <div class="space-y-4">
+            <div class="nav-group">
+              <h3 class="text-lg font-bold mb-2">Getting Started</h3>
+              <ul class="space-y-2 pl-4">
+                <li><a href="#intro" class="nav-tree-link" data-section="intro">Introduction</a></li>
+                <li><a href="#installation" class="nav-tree-link" data-section="installation">Installation</a></li>
+              </ul>
+            </div>
+            
+            <div class="nav-group">
+              <h3 class="text-lg font-bold mb-2">Atoms</h3>
+              <ul class="space-y-2 pl-4">
+                <li>
+                  <a href="#buttons" class="nav-tree-link" data-section="buttons">Buttons</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#primary-button" class="nav-tree-link" data-section="primary-button">Primary Button</a></li>
+                    <li><a href="#secondary-button" class="nav-tree-link" data-section="secondary-button">Secondary Button</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#inputs" class="nav-tree-link" data-section="inputs">Inputs</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#text-input" class="nav-tree-link" data-section="text-input">Text Input</a></li>
+                    <li><a href="#label" class="nav-tree-link" data-section="label">Label</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#tags" class="nav-tree-link" data-section="tags">Tags</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#skill-tags" class="nav-tree-link" data-section="skill-tags">Skill Tag</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#typography" class="nav-tree-link" data-section="typography">Typography</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#headings" class="nav-tree-link" data-section="headings">Headings</a></li>
+                    <li><a href="#body-text" class="nav-tree-link" data-section="body-text">Body Text</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="nav-group">
+              <h3 class="text-lg font-bold mb-2">Molecules</h3>
+              <ul class="space-y-2 pl-4">
+                <li>
+                  <a href="#form-groups" class="nav-tree-link" data-section="form-groups">Form Groups</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#input-group" class="nav-tree-link" data-section="input-group">Input Group</a></li>
+                    <li><a href="#button-group" class="nav-tree-link" data-section="button-group">Button Group</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#cards" class="nav-tree-link" data-section="cards">Cards</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#basic-card" class="nav-tree-link" data-section="basic-card">Basic Card</a></li>
+                    <li><a href="#feature-card" class="nav-tree-link" data-section="feature-card">Feature Card</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#navigation" class="nav-tree-link" data-section="navigation">Navigation</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#nav-links" class="nav-tree-link" data-section="nav-links">Nav Links</a></li>
+                    <li><a href="#nav-group" class="nav-tree-link" data-section="nav-group">Nav Group</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+
+            <div class="nav-group">
+              <h3 class="text-lg font-bold mb-2">Organisms</h3>
+              <ul class="space-y-2 pl-4">
+                <li>
+                  <a href="#forms" class="nav-tree-link" data-section="forms">Forms</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#contact-form" class="nav-tree-link" data-section="contact-form">Contact Form</a></li>
+                    <li><a href="#search-form" class="nav-tree-link" data-section="search-form">Search Form</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#headers" class="nav-tree-link" data-section="headers">Headers</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#main-header" class="nav-tree-link" data-section="main-header">Main Header</a></li>
+                    <li><a href="#section-header" class="nav-tree-link" data-section="section-header">Section Header</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#sections" class="nav-tree-link" data-section="sections">Sections</a>
+                  <ul class="space-y-2 pl-4 mt-2">
+                    <li><a href="#hero-section" class="nav-tree-link" data-section="hero-section">Hero Section</a></li>
+                    <li><a href="#feature-section" class="nav-tree-link" data-section="feature-section">Feature Section</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Main Content Wrapper -->
+      <div class="flex-1 ml-64 pt-16">
+        <main>
+          <!-- Intro Section -->
+          <section id="intro" class="py-12">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h1 class="hero-title mb-6">
+                Neubrutalist Components
+              </h1>
+              <p class="text-2xl mb-12 max-w-2xl">
+                A collection of Tailwind CSS components in the neubrutalist style, organized using atomic design principles.
+              </p>
+              <div class="neubrutalist-card">
+                <h2 class="text-2xl font-bold mb-4">Atomic Design Structure</h2>
+                <div class="space-y-4">
+                  <div>
+                    <h3 class="text-xl font-bold">Atoms</h3>
+                    <p>Basic building blocks like buttons, inputs, and tags that serve as the foundation for all components.</p>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold">Molecules</h3>
+                    <p>Combinations of atoms that work together as a unit, such as form groups, cards, and navigation elements.</p>
+                  </div>
+                  <div>
+                    <h3 class="text-xl font-bold">Organisms</h3>
+                    <p>Complex UI components composed of molecules and atoms that form distinct sections of the interface.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Installation Section -->
+          <section id="installation" class="py-12 bg-white border-y-4 border-black">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+              <h2 class="section-title">Installation</h2>
+              <div class="neubrutalist-card">
+                <h3 class="text-2xl font-bold mb-4">Getting Started</h3>
+                <p class="mb-6">Add these components to your Tailwind CSS project:</p>
+                <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                  <span>View Code</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 9l-7 7-7-7"/>
+                  </svg>
+                </button>
+                <div class="code-content hidden">
+                  <pre><code class="language-css">/* Add to your CSS */
+:root {
+  --shadow-color: #171717;
+  --primary: #008f6d;
+  --secondary: #7ac2a6;
+  --accent: #e6c400;
+  --background: #f5f9f7;
+  --text: #171717;
+}</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Atoms -->
+          <div class="relative py-24 bg-white border-y-4 border-black">
+            <div class="absolute -top-6 left-8">
+              <div class="neubrutalist-card py-2 px-6">
+                <h2 class="text-2xl font-black">Atoms</h2>
+              </div>
+            </div>
+
+            <!-- Typography Section -->
+            <section id="typography" class="py-12">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Typography</h2>
+                
+                <div class="space-y-8">
+                  <!-- Headings -->
+                  <div id="headings" class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Headings</h3>
+                    <div class="mb-6 space-y-4">
+                      <h1 class="hero-title">Hero Title</h1>
+                      <h2 class="section-title">Section Title</h2>
+                      <h3 class="text-2xl font-bold">Card Title</h3>
+                      <h4 class="text-xl font-bold">Subtitle</h4>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;h1 class="hero-title"&gt;Hero Title&lt;/h1&gt;
+&lt;h2 class="section-title"&gt;Section Title&lt;/h2&gt;
+&lt;h3 class="text-2xl font-bold"&gt;Card Title&lt;/h3&gt;
+&lt;h4 class="text-xl font-bold"&gt;Subtitle&lt;/h4&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">.hero-title {
+  @apply text-6xl sm:text-7xl font-black;
+  text-shadow: 2px 2px 0 var(--shadow-color);
+}
+
+.section-title {
+  @apply text-4xl font-black mb-12;
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Body Text -->
+                  <div id="body-text" class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Body Text</h3>
+                    <div class="mb-6 space-y-4">
+                      <p class="text-2xl">Large paragraph text for hero sections and important content.</p>
+                      <p class="text-lg">Standard paragraph text for general content and descriptions.</p>
+                      <p class="text-sm">Small text for captions and supporting information.</p>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;p class="text-2xl"&gt;Large paragraph text&lt;/p&gt;
+&lt;p class="text-lg"&gt;Standard paragraph text&lt;/p&gt;
+&lt;p class="text-sm"&gt;Small text&lt;/p&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Buttons Section -->
+            <section id="buttons" class="py-12 border-t-4 border-black">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Buttons</h2>
+                
+                <div class="space-y-8">
+                  <!-- Primary Button -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Primary Button</h3>
+                    <div class="mb-6">
+                      <button class="neubrutalist-button primary">Primary Button</button>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;button class="neubrutalist-button primary"&gt;
+  Primary Button
+&lt;/button&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">.neubrutalist-button {
+  @apply px-6 py-3 font-bold text-lg transition-all duration-200 border-4 border-black;
+  background: white;
+  box-shadow: 8px 8px 0 #171717;
+  transform: translate(-4px, -4px);
+}
+
+.neubrutalist-button:hover {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 #171717;
+}
+
+.neubrutalist-button.primary {
+  background: #008f6d;
+  color: white;
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Secondary Button -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Secondary Button</h3>
+                    <div class="mb-6">
+                      <button class="neubrutalist-button secondary">Secondary Button</button>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;button class="neubrutalist-button secondary"&gt;
+  Secondary Button
+&lt;/button&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">.neubrutalist-button.secondary {
+  background: #7ac2a6;
+  color: #171717;
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Inputs Section -->
+            <section id="inputs" class="py-12 border-t-4 border-black">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Form Inputs</h2>
+                
+                <div class="space-y-8">
+                  <!-- Text Input -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Text Input</h3>
+                    <div class="mb-6 max-w-md">
+                      <label class="block font-bold mb-2">Input Label</label>
+                      <input type="text" class="neubrutalist-input" placeholder="Type something...">
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;label class="block font-bold mb-2"&gt;Input Label&lt;/label&gt;
+&lt;input type="text" class="neubrutalist-input" placeholder="Type something..."&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">.neubrutalist-input {
+  @apply w-full px-4 py-3 text-lg border-4 border-black bg-white;
+  box-shadow: 6px 6px 0 #171717;
+}
+
+.neubrutalist-input:focus {
+  @apply outline-none;
+  box-shadow: 3px 3px 0 #171717;
+  transform: translate(3px, 3px);
+  border-color: #008f6d;
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Tags Section -->
+            <section id="tags" class="py-12 border-t-4 border-black">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Tags</h2>
+                
+                <div class="space-y-8">
+                  <!-- Skill Tags -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Skill Tags</h3>
+                    <div class="mb-6 flex gap-3 flex-wrap">
+                      <span class="skill-tag">React</span>
+                      <span class="skill-tag">TypeScript</span>
+                      <span class="skill-tag">Tailwind</span>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;span class="skill-tag"&gt;React&lt;/span&gt;
+&lt;span class="skill-tag"&gt;TypeScript&lt;/span&gt;
+&lt;span class="skill-tag"&gt;Tailwind&lt;/span&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">.skill-tag {
+  @apply px-4 py-2 text-lg font-bold border-2 border-black bg-white inline-block;
+  box-shadow: 4px 4px 0 #171717;
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Molecules -->
+          <div class="relative py-24">
+            <div class="absolute -top-6 left-8">
+              <div class="neubrutalist-card py-2 px-6">
+                <h2 class="text-2xl font-black">Molecules</h2>
+              </div>
+            </div>
+
+            <!-- Form Groups Section -->
+            <section id="form-groups" class="py-12">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Form Groups</h2>
+                
+                <div class="space-y-8">
+                  <!-- Input Group -->
+                  <div id="input-group" class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Input Group</h3>
+                    <div class="mb-6 max-w-md">
+                      <div class="form-group">
+                        <label class="block font-bold mb-2">Email Address</label>
+                        <input type="email" class="neubrutalist-input" placeholder="you@example.com">
+                        <p class="text-sm mt-2">We'll never share your email with anyone else.</p>
+                      </div>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;div class="form-group"&gt;
+    &lt;label class="block font-bold mb-2"&gt;Email Address&lt;/label&gt;
+    &lt;input type="email" class="neubrutalist-input" placeholder="you@example.com"&gt;
+    &lt;p class="text-sm mt-2"&gt;We'll never share your email with anyone else.&lt;/p&gt;
+  &lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Button Group -->
+                  <div id="button-group" class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Button Group</h3>
+                    <div class="mb-6">
+                      <div class="flex gap-4">
+                        <button class="neubrutalist-button primary">Save Changes</button>
+                        <button class="neubrutalist-button secondary">Cancel</button>
+                      </div>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;div class="flex gap-4"&gt;
+  &lt;button class="neubrutalist-button primary"&gt;Save Changes&lt;/button&gt;
+  &lt;button class="neubrutalist-button secondary"&gt;Cancel&lt;/button&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Cards Section -->
+            <section id="cards" class="py-12 border-t-4 border-black">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Cards</h2>
+                
+                <div class="space-y-8">
+                  <!-- Basic Card -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Basic Card</h3>
+                    <div class="mb-6">
+                      <div class="neubrutalist-card w-72">
+                        <h4 class="text-xl font-bold mb-2">Card Title</h4>
+                        <p>This is a basic card with some sample content.</p>
+                      </div>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;div class="neubrutalist-card"&gt;
+  &lt;h4 class="text-xl font-bold mb-2"&gt;Card Title&lt;/h4&gt;
+  &lt;p&gt;This is a basic card with some sample content.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">.neubrutalist-card {
+  @apply p-6 bg-white border-4 border-black;
+  box-shadow: 12px 12px 0 #171717;
+}</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Navigation Section -->
+            <section id="navigation" class="py-12 border-t-4 border-black">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Navigation</h2>
+                
+                <div class="space-y-8">
+                  <!-- Nav Links -->
+                  <div id="nav-links" class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Nav Links</h3>
+                    <div class="mb-6">
+                      <div class="flex gap-4">
+                        <a href="#" class="nav-link">Home</a>
+                        <a href="#" class="nav-link active">About</a>
+                        <a href="#" class="nav-link">Contact</a>
+                      </div>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;a href="#" class="nav-link"&gt;Home&lt;/a&gt;
+&lt;a href="#" class="nav-link active"&gt;About&lt;/a&gt;
+&lt;a href="#" class="nav-link"&gt;Contact&lt;/a&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">.nav-link {
+  @apply px-4 py-2 font-bold text-lg transition-all duration-200 border-4 border-black;
+  background: white;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transform: translate(-2px, -2px);
+}
+
+.nav-link.active {
+  background: var(--primary);
+  color: white;
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 var(--shadow-color);
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Nav Group -->
+                  <div id="nav-group" class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Nav Group</h3>
+                    <div class="mb-6">
+                      <div class="nav-group">
+                        <h4 class="text-lg font-bold mb-2">Navigation Group</h4>
+                        <ul class="space-y-2 pl-4">
+                          <li><a href="#" class="nav-tree-link">Link One</a></li>
+                          <li><a href="#" class="nav-tree-link active">Link Two</a></li>
+                          <li><a href="#" class="nav-tree-link">Link Three</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;div class="nav-group"&gt;
+  &lt;h4 class="text-lg font-bold mb-2"&gt;Navigation Group&lt;/h4&gt;
+  &lt;ul class="space-y-2 pl-4"&gt;
+    &lt;li&gt;&lt;a href="#" class="nav-tree-link"&gt;Link One&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="nav-tree-link active"&gt;Link Two&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" class="nav-tree-link"&gt;Link Three&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <!-- Organisms -->
+          <div class="relative py-24 bg-white border-y-4 border-black">
+            <div class="absolute -top-6 left-8">
+              <div class="neubrutalist-card py-2 px-6">
+                <h2 class="text-2xl font-black">Organisms</h2>
+              </div>
+            </div>
+
+            <!-- Forms Section -->
+            <section id="forms" class="py-12">
+              <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="section-title">Forms</h2>
+                
+                <div class="space-y-8">
+                  <!-- Contact Form -->
+                  <div id="contact-form" class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Contact Form</h3>
+                    <div class="mb-6">
+                      <form class="space-y-6">
+                        <div class="form-group">
+                          <label class="block font-bold mb-2">Name</label>
+                          <input type="text" class="neubrutalist-input" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                          <label class="block font-bold mb-2">Email</label>
+                          <input type="email" class="neubrutalist-input" placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                          <label class="block font-bold mb-2">Message</label>
+                          <textarea class="neubrutalist-input" rows="4" placeholder="Your message"></textarea>
+                        </div>
+                        <div class="flex gap-4">
+                          <button type="submit" class="neubrutalist-button primary">Send Message</button>
+                          <button type="reset" class="neubrutalist-button secondary">Reset</button>
+                        </div>
+                      </form>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;form class="space-y-6"&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="block font-bold mb-2"&gt;Name&lt;/label&gt;
+    &lt;input type="text" class="neubrutalist-input" placeholder="Your name"&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="block font-bold mb-2"&gt;Email&lt;/label&gt;
+    &lt;input type="email" class="neubrutalist-input" placeholder="you@example.com"&gt;
+  &lt;/div&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label class="block font-bold mb-2"&gt;Message&lt;/label&gt;
+    &lt;textarea class="neubrutalist-input" rows="4" placeholder="Your message"&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;div class="flex gap-4"&gt;
+    &lt;button type="submit" class="neubrutalist-button primary"&gt;Send Message&lt;/button&gt;
+    &lt;button type="reset" class="neubrutalist-button secondary"&gt;Reset&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/form&gt;</code></pre>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </main>
+
+        <footer class="bg-white py-12 border-t-4 border-black">
+          <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+              <div class="text-center md:text-left mb-6 md:mb-0 space-y-2">
+                <h3 class="text-2xl font-black">Zak Holt</h3>
+                <p class="text-gray-600">Full-Stack Engineer</p>
+                <div class="flex gap-4 mt-4">
+                  <a href="https://github.com/zakjholt" target="_blank" rel="noopener noreferrer" class="nav-tree-link">GitHub</a>
+                  <a href="https://www.linkedin.com/in/zachary-j-holt/" target="_blank" rel="noopener noreferrer" class="nav-tree-link">LinkedIn</a>
+                </div>
+              </div>
+              <div class="flex flex-col items-end gap-4">
+                <a href="/" class="neubrutalist-button primary">Back to Portfolio</a>
+                <p class="text-sm text-gray-600">Built with Tailwind CSS and Neubrutalism</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
+  </body>
+</html> 

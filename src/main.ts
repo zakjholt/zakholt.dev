@@ -104,3 +104,39 @@ const animatedElements = document.querySelectorAll(
 animatedElements.forEach((element) => {
   animationObserver.observe(element);
 });
+
+// Code toggle functionality
+document
+  .querySelectorAll<HTMLButtonElement>(".code-toggle")
+  .forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const isExpanded = toggle.getAttribute("aria-expanded") === "true";
+      const codeContent = toggle.nextElementSibling as HTMLElement;
+      const toggleText = toggle.querySelector("span");
+
+      // Update button state
+      toggle.setAttribute("aria-expanded", (!isExpanded).toString());
+
+      // Update text
+      if (toggleText) {
+        toggleText.textContent = isExpanded ? "View Code" : "Hide Code";
+      }
+
+      // Toggle content visibility
+      if (codeContent) {
+        if (!isExpanded) {
+          codeContent.classList.remove("hidden");
+          // Use setTimeout to ensure the transition works
+          setTimeout(() => {
+            codeContent.classList.add("visible");
+          }, 10);
+        } else {
+          codeContent.classList.remove("visible");
+          // Wait for transition to complete before hiding
+          setTimeout(() => {
+            codeContent.classList.add("hidden");
+          }, 300);
+        }
+      }
+    });
+  });

@@ -274,3 +274,110 @@ button:focus-visible {
   transform: rotate(0deg);
   box-shadow: 0 0 0 var(--shadow-color);
 }
+
+/* Code block styles */
+pre {
+  @apply p-4 rounded-none border-4 border-black bg-[#1d1f21] overflow-x-auto;
+  box-shadow: 6px 6px 0 var(--shadow-color);
+}
+
+pre code {
+  @apply text-sm;
+}
+
+/* Component showcase styles */
+.showcase-container {
+  @apply p-8 bg-white border-4 border-black relative;
+  box-shadow: 8px 8px 0 var(--shadow-color);
+}
+
+.showcase-label {
+  @apply absolute -top-3 -left-3 bg-white border-4 border-black px-4 py-1 font-bold;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+/* Override Prism styles */
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  @apply bg-[#1d1f21];
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ff8b8b;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #b5f4a5;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #9aedfe;
+}
+
+/* Tree Navigation Styles */
+.nav-tree-link {
+  @apply block py-1 px-2 font-medium transition-all duration-200 border-2 border-transparent;
+  color: var(--text);
+}
+
+.nav-tree-link:hover {
+  @apply border-2 border-black bg-white;
+  box-shadow: 2px 2px 0 var(--shadow-color);
+  transform: translate(-1px, -1px);
+}
+
+.nav-tree-link:focus {
+  @apply outline-none border-2 border-black;
+  background: var(--secondary);
+  box-shadow: 0 0 0 var(--shadow-color);
+  transform: translate(0, 0);
+}
+
+.nav-tree-link.active {
+  @apply border-2 border-black;
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 0 0 var(--shadow-color);
+  transform: translate(0, 0);
+}
+
+.nav-group {
+  @apply p-4 bg-white border-4 border-black relative;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+/* Code toggle styles */
+.code-toggle {
+  @apply flex items-center justify-center;
+}
+
+.code-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.code-content {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.code-content.visible {
+  opacity: 1;
+  max-height: 1000px;
+}
