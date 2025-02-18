@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zak Holt | Full-Stack Engineer</title>
     
@@ -81,17 +80,40 @@
       <section class="min-h-[80vh] flex items-center relative overflow-hidden">
         <div class="geometric-bg absolute inset-0"></div>
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="animate-on-scroll">
-            <h1 class="hero-title mb-6 animate-on-scroll pop-up">
-              Hey! I'm Zak 👋<br/>
-              <span style="color: var(--primary)">Full-Stack Engineer</span>
-            </h1>
-            <p class="text-2xl mb-12 max-w-2xl animate-on-scroll slide-in-right">
-              I'm passionate about building tools that make peoples' lives a little easier. Currently building the future of SEC filing at Fyler.
-            </p>
-            <div class="flex gap-6 animate-on-scroll bounce-in">
-              <a href="#contact" class="neubrutalist-button primary">Get in touch</a>
-              <a href="#projects" class="neubrutalist-button secondary">View my work</a>
+          <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="animate-on-scroll order-2 md:order-1 flex-1">
+              <h1 class="hero-title mb-6 animate-on-scroll pop-up">
+                Hey! I'm Zak 👋<br/>
+                <span style="color: var(--primary)">Full-Stack Engineer</span>
+              </h1>
+              <p class="text-2xl mb-12 max-w-2xl animate-on-scroll slide-in-right">
+                I'm passionate about building tools that make peoples' lives a little easier. Currently building the future of SEC filing at Fyler.
+              </p>
+              <div class="flex gap-6 animate-on-scroll bounce-in">
+                <a href="#contact" class="neubrutalist-button primary">Get in touch</a>
+                <a href="#projects" class="neubrutalist-button secondary">View my work</a>
+              </div>
+            </div>
+            <div class="order-1 md:order-2 animate-on-scroll pop-up">
+              <div class="relative inline-block">
+                <div class="absolute inset-0 bg-white border-4 border-black rotate-3"></div>
+                <picture>
+                  <source
+                    srcset="/img/zak.webp"
+                    type="image/webp"
+                  />
+                  <img 
+                    src="/img/zak.jpg" 
+                    alt="Zak Holt - Full Stack Engineer" 
+                    class="relative z-10 border-4 border-black w-64 h-64 object-cover -rotate-3"
+                    width="256"
+                    height="256"
+                    loading="eager"
+                    decoding="async"
+                    fetchpriority="high"
+                  />
+                </picture>
+              </div>
             </div>
           </div>
         </div>
