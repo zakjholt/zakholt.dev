@@ -56,7 +56,6 @@ body {
 }
 
 .neubrutalist-button:focus-visible,
-.nav-link:focus-visible,
 .neubrutalist-input:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 2px;
@@ -64,14 +63,13 @@ body {
 
 /* Ensure focus styles remain visible even when using mouse */
 .neubrutalist-button:focus,
-.nav-link:focus,
 .neubrutalist-input:focus {
   outline: 3px solid var(--primary);
   outline-offset: 2px;
 }
 
-/* Add focus ring to all interactive elements */
-a:focus-visible,
+/* Add focus ring to all interactive elements except nav links */
+a:not(.nav-link):focus-visible,
 button:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 2px;
@@ -245,6 +243,13 @@ button:focus-visible {
   background: white;
   box-shadow: 4px 4px 0 var(--shadow-color);
   transform: translate(-2px, -2px);
+}
+
+.nav-link:focus {
+  outline: none;
+  background: var(--secondary);
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 var(--shadow-color);
 }
 
 .nav-link.active {
