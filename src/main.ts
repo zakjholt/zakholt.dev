@@ -22,22 +22,19 @@ document
 const sections = document.querySelectorAll("section[id]");
 const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
 
+// Update active navigation link
 const observerOptions = {
   root: null,
-  rootMargin: "-50% 0px", // Only consider the middle 50% of the viewport
+  rootMargin: "-50% 0px",
   threshold: 0,
 };
 
 const observerCallback: IntersectionObserverCallback = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      // Remove active class from all nav links
       navLinks.forEach((link) => link.classList.remove("active"));
-
-      // Add active class to current section's nav link
-      const activeId = entry.target.id;
       const activeLink = document.querySelector(
-        `.nav-link[data-section="${activeId}"]`
+        `.nav-link[data-section="${entry.target.id}"]`
       );
       if (activeLink) {
         activeLink.classList.add("active");
@@ -53,19 +50,33 @@ sections.forEach((section) => {
 });
 
 // Form handling
-const contactForm = document.getElementById("contact-form");
+const contactForm = document.getElementById("contact-form") as HTMLFormElement;
 if (contactForm) {
   contactForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target as HTMLFormElement);
-    const data = Object.fromEntries(formData);
+    const submitButton = contactForm.querySelector(
+      'button[type="submit"]'
+    ) as HTMLButtonElement;
+    const originalText = submitButton.textContent;
+    submitButton.textContent = "Sending...";
+    submitButton.disabled = true;
 
-    // Here you would typically send the data to your backend
-    console.log("Form submitted:", data);
+    try {
+      await fetch("/", {
+        method: "POST",
+        body: new URLSearchParams(new FormData(contactForm) as any),
+      });
 
-    // For now, just show a success message
-    alert("Thanks for reaching out! I'll get back to you soon.");
-    (e.target as HTMLFormElement).reset();
+      alert("Thanks for reaching out! I'll get back to you soon.");
+      contactForm.reset();
+    } catch (error) {
+      alert(
+        "Oops! There was a problem sending your message. Please try again."
+      );
+    } finally {
+      submitButton.textContent = originalText;
+      submitButton.disabled = false;
+    }
   });
 }
 
