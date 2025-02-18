@@ -81,21 +81,26 @@ if (contactForm) {
 }
 
 // Animation observer
-const fadeObserverOptions = {
+const animationObserverOptions = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.1,
+  threshold: 0.2,
 };
 
-const fadeObserver = new IntersectionObserver((entries) => {
+const animationObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      entry.target.classList.add("fade-in");
-      fadeObserver.unobserve(entry.target);
+      entry.target.classList.add("visible");
+      // Don't unobserve - this allows animations to replay when scrolling back up
     }
   });
-}, fadeObserverOptions);
+}, animationObserverOptions);
 
-document.querySelectorAll(".animate-on-scroll").forEach((element) => {
-  fadeObserver.observe(element);
+// Observe all elements with animation classes
+const animatedElements = document.querySelectorAll(
+  ".fade-in, .slide-in-right, .slide-in-left, .pop-up, .bounce-in"
+);
+
+animatedElements.forEach((element) => {
+  animationObserver.observe(element);
 });
