@@ -176,13 +176,25 @@
                 </button>
                 <div class="code-content hidden">
                   <pre><code class="language-css">/* Add to your CSS */
-:root {
-  --shadow-color: #171717;
-  --primary: #008f6d;
-  --secondary: #7ac2a6;
-  --accent: #e6c400;
-  --background: #f5f9f7;
-  --text: #171717;
+@layer components {
+  .neubrutalist-button {
+    @apply px-6 py-3 font-bold text-lg transition-all duration-200 border-4 border-black bg-white;
+    box-shadow: 8px 8px 0 #171717;
+    transform: translate(-4px, -4px);
+  }
+
+  .neubrutalist-button:hover {
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 #171717;
+  }
+
+  .neubrutalist-button.primary {
+    @apply bg-emerald-600 text-white;
+  }
+
+  .neubrutalist-button.secondary {
+    @apply bg-emerald-200 text-black;
+  }
 }</code></pre>
                 </div>
               </div>
@@ -265,7 +277,7 @@
                 
                 <div class="space-y-8">
                   <!-- Primary Button -->
-                  <div class="neubrutalist-card">
+                  <div id="primary-button" class="neubrutalist-card">
                     <h3 class="text-2xl font-bold mb-4">Primary Button</h3>
                     <div class="mb-6">
                       <button class="neubrutalist-button primary">Primary Button</button>
@@ -300,7 +312,7 @@
                   </div>
 
                   <!-- Secondary Button -->
-                  <div class="neubrutalist-card">
+                  <div id="secondary-button" class="neubrutalist-card">
                     <h3 class="text-2xl font-bold mb-4">Secondary Button</h3>
                     <div class="mb-6">
                       <button class="neubrutalist-button secondary">Secondary Button</button>
@@ -332,7 +344,7 @@
                 
                 <div class="space-y-8">
                   <!-- Text Input -->
-                  <div class="neubrutalist-card">
+                  <div id="text-input" class="neubrutalist-card">
                     <h3 class="text-2xl font-bold mb-4">Text Input</h3>
                     <div class="mb-6 max-w-md">
                       <label class="block font-bold mb-2">Input Label</label>
@@ -347,16 +359,166 @@
                     <div class="code-content hidden">
                       <pre><code class="language-html">&lt;label class="block font-bold mb-2"&gt;Input Label&lt;/label&gt;
 &lt;input type="text" class="neubrutalist-input" placeholder="Type something..."&gt;</code></pre>
-                      <pre class="mt-4"><code class="language-css">.neubrutalist-input {
-  @apply w-full px-4 py-3 text-lg border-4 border-black bg-white;
-  box-shadow: 6px 6px 0 #171717;
-}
+                    </div>
+                  </div>
 
-.neubrutalist-input:focus {
-  @apply outline-none;
-  box-shadow: 3px 3px 0 #171717;
-  transform: translate(3px, 3px);
-  border-color: #008f6d;
+                  <!-- Textarea -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Textarea</h3>
+                    <div class="mb-6 max-w-md">
+                      <label class="block font-bold mb-2">Message</label>
+                      <textarea class="neubrutalist-input" rows="4" placeholder="Write your message..."></textarea>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;label class="block font-bold mb-2"&gt;Message&lt;/label&gt;
+&lt;textarea class="neubrutalist-input" rows="4" placeholder="Write your message..."&gt;&lt;/textarea&gt;</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Slider -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Range Slider</h3>
+                    <div class="mb-6 max-w-md">
+                      <label class="block font-bold mb-2">Volume</label>
+                      <input type="range" class="neubrutalist-range w-full" min="0" max="100" value="50">
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;label class="block font-bold mb-2"&gt;Volume&lt;/label&gt;
+&lt;input type="range" class="neubrutalist-range w-full" min="0" max="100" value="50"&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">@layer components {
+  .neubrutalist-range {
+    @apply h-2 rounded-none bg-white border-4 border-black;
+    -webkit-appearance: none;
+    box-shadow: 4px 4px 0 #171717;
+  }
+
+  .neubrutalist-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @apply w-6 h-6 bg-emerald-600 border-4 border-black cursor-pointer;
+  }
+
+  .neubrutalist-range::-moz-range-thumb {
+    @apply w-6 h-6 bg-emerald-600 border-4 border-black cursor-pointer;
+  }
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Checkboxes -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Checkboxes</h3>
+                    <div class="mb-6 max-w-md space-y-4">
+                      <div class="flex items-center gap-3">
+                        <input type="checkbox" id="checkbox1" class="neubrutalist-checkbox">
+                        <label for="checkbox1" class="font-bold">Subscribe to newsletter</label>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <input type="checkbox" id="checkbox2" class="neubrutalist-checkbox">
+                        <label for="checkbox2" class="font-bold">Accept terms</label>
+                      </div>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;div class="flex items-center gap-3"&gt;
+  &lt;input type="checkbox" id="checkbox1" class="neubrutalist-checkbox"&gt;
+  &lt;label for="checkbox1" class="font-bold"&gt;Subscribe to newsletter&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">@layer components {
+  .neubrutalist-checkbox {
+    @apply w-6 h-6 border-4 border-black bg-white cursor-pointer;
+    -webkit-appearance: none;
+    box-shadow: 4px 4px 0 #171717;
+    transition: all 0.2s ease;
+  }
+
+  .neubrutalist-checkbox:checked {
+    @apply bg-emerald-600;
+    box-shadow: 2px 2px 0 #171717;
+    transform: translate(2px, 2px);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+  }
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Radio Buttons -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Radio Buttons</h3>
+                    <div class="mb-6 max-w-md space-y-4">
+                      <div class="flex items-center gap-3">
+                        <input type="radio" id="radio1" name="radio-group" class="neubrutalist-radio">
+                        <label for="radio1" class="font-bold">Option One</label>
+                      </div>
+                      <div class="flex items-center gap-3">
+                        <input type="radio" id="radio2" name="radio-group" class="neubrutalist-radio">
+                        <label for="radio2" class="font-bold">Option Two</label>
+                      </div>
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;div class="flex items-center gap-3"&gt;
+  &lt;input type="radio" id="radio1" name="radio-group" class="neubrutalist-radio"&gt;
+  &lt;label for="radio1" class="font-bold"&gt;Option One&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">@layer components {
+  .neubrutalist-radio {
+    @apply w-6 h-6 border-4 border-black bg-white rounded-full cursor-pointer;
+    -webkit-appearance: none;
+    box-shadow: 4px 4px 0 #171717;
+    transition: all 0.2s ease;
+  }
+
+  .neubrutalist-radio:checked {
+    @apply bg-emerald-600;
+    box-shadow: 2px 2px 0 #171717;
+    transform: translate(2px, 2px);
+    background-image: radial-gradient(white 30%, transparent 31%);
+  }
+}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- Date Picker -->
+                  <div class="neubrutalist-card">
+                    <h3 class="text-2xl font-bold mb-4">Date Picker</h3>
+                    <div class="mb-6 max-w-md">
+                      <label class="block font-bold mb-2">Select Date</label>
+                      <input type="date" class="neubrutalist-input">
+                    </div>
+                    <button class="code-toggle neubrutalist-button secondary w-full mb-4" aria-expanded="false">
+                      <span>View Code</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </button>
+                    <div class="code-content hidden">
+                      <pre><code class="language-html">&lt;label class="block font-bold mb-2"&gt;Select Date&lt;/label&gt;
+&lt;input type="date" class="neubrutalist-input"&gt;</code></pre>
+                      <pre class="mt-4"><code class="language-css">/* Date picker inherits neubrutalist-input styles */
+.neubrutalist-input[type="date"] {
+  @apply px-4 py-3;
 }</code></pre>
                     </div>
                   </div>
@@ -371,7 +533,7 @@
                 
                 <div class="space-y-8">
                   <!-- Skill Tags -->
-                  <div class="neubrutalist-card">
+                  <div id="skill-tags" class="neubrutalist-card">
                     <h3 class="text-2xl font-bold mb-4">Skill Tags</h3>
                     <div class="mb-6 flex gap-3 flex-wrap">
                       <span class="skill-tag">React</span>
@@ -388,9 +550,11 @@
                       <pre><code class="language-html">&lt;span class="skill-tag"&gt;React&lt;/span&gt;
 &lt;span class="skill-tag"&gt;TypeScript&lt;/span&gt;
 &lt;span class="skill-tag"&gt;Tailwind&lt;/span&gt;</code></pre>
-                      <pre class="mt-4"><code class="language-css">.skill-tag {
-  @apply px-4 py-2 text-lg font-bold border-2 border-black bg-white inline-block;
-  box-shadow: 4px 4px 0 #171717;
+                      <pre class="mt-4"><code class="language-css">@layer components {
+  .skill-tag {
+    @apply px-4 py-2 text-lg font-bold border-2 border-black bg-white inline-block;
+    box-shadow: 4px 4px 0 #171717;
+  }
 }</code></pre>
                     </div>
                   </div>
@@ -471,7 +635,7 @@
                 
                 <div class="space-y-8">
                   <!-- Basic Card -->
-                  <div class="neubrutalist-card">
+                  <div id="basic-card" class="neubrutalist-card">
                     <h3 class="text-2xl font-bold mb-4">Basic Card</h3>
                     <div class="mb-6">
                       <div class="neubrutalist-card w-72">
@@ -490,9 +654,11 @@
   &lt;h4 class="text-xl font-bold mb-2"&gt;Card Title&lt;/h4&gt;
   &lt;p&gt;This is a basic card with some sample content.&lt;/p&gt;
 &lt;/div&gt;</code></pre>
-                      <pre class="mt-4"><code class="language-css">.neubrutalist-card {
-  @apply p-6 bg-white border-4 border-black;
-  box-shadow: 12px 12px 0 #171717;
+                      <pre class="mt-4"><code class="language-css">@layer components {
+  .neubrutalist-card {
+    @apply p-6 bg-white border-4 border-black;
+    box-shadow: 12px 12px 0 #171717;
+  }
 }</code></pre>
                     </div>
                   </div>
@@ -526,18 +692,24 @@
                       <pre><code class="language-html">&lt;a href="#" class="nav-link"&gt;Home&lt;/a&gt;
 &lt;a href="#" class="nav-link active"&gt;About&lt;/a&gt;
 &lt;a href="#" class="nav-link"&gt;Contact&lt;/a&gt;</code></pre>
-                      <pre class="mt-4"><code class="language-css">.nav-link {
-  @apply px-4 py-2 font-bold text-lg transition-all duration-200 border-4 border-black;
-  background: white;
-  box-shadow: 4px 4px 0 var(--shadow-color);
-  transform: translate(-2px, -2px);
-}
+                      <pre class="mt-4"><code class="language-css">@layer components {
+  .nav-link {
+    @apply px-4 py-2 font-bold text-lg transition-all duration-200 border-4 border-black bg-white;
+    box-shadow: 4px 4px 0 #171717;
+    transform: translate(-2px, -2px);
+  }
 
-.nav-link.active {
-  background: var(--primary);
-  color: white;
-  transform: translate(0, 0);
-  box-shadow: 0 0 0 var(--shadow-color);
+  .nav-link:focus {
+    @apply outline-none bg-emerald-200;
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 #171717;
+  }
+
+  .nav-link.active {
+    @apply bg-emerald-600 text-white;
+    transform: translate(0, 0);
+    box-shadow: 0 0 0 #171717;
+  }
 }</code></pre>
                     </div>
                   </div>

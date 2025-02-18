@@ -41,6 +41,7 @@ body {
 .neubrutalist-card {
   @apply p-6 bg-white border-4 border-black;
   box-shadow: 12px 12px 0 var(--shadow-color);
+  scroll-margin-top: 6rem;
 }
 
 .neubrutalist-input {
@@ -348,14 +349,6 @@ pre[class*="language-"] {
   transform: translate(0, 0);
 }
 
-.nav-tree-link.active {
-  @apply border-2 border-black;
-  background: var(--primary);
-  color: white;
-  box-shadow: 0 0 0 var(--shadow-color);
-  transform: translate(0, 0);
-}
-
 .nav-group {
   @apply p-4 bg-white border-4 border-black relative;
   box-shadow: 4px 4px 0 var(--shadow-color);
@@ -380,4 +373,81 @@ pre[class*="language-"] {
 .code-content.visible {
   opacity: 1;
   max-height: 1000px;
+}
+
+/* Range Slider */
+.neubrutalist-range {
+  @apply h-2 rounded-none bg-white border-4 border-black;
+  -webkit-appearance: none;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+}
+
+.neubrutalist-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  @apply w-6 h-6 border-4 border-black cursor-pointer;
+  background: var(--primary);
+}
+
+.neubrutalist-range::-moz-range-thumb {
+  @apply w-6 h-6 border-4 border-black cursor-pointer;
+  background: var(--primary);
+}
+
+/* Checkbox */
+.neubrutalist-checkbox {
+  @apply w-6 h-6 border-4 border-black bg-white cursor-pointer;
+  -webkit-appearance: none;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: all 0.2s ease;
+}
+
+.neubrutalist-checkbox:checked {
+  background: var(--primary);
+  box-shadow: 2px 2px 0 var(--shadow-color);
+  transform: translate(2px, 2px);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E");
+}
+
+.neubrutalist-checkbox:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Radio */
+.neubrutalist-radio {
+  @apply w-6 h-6 border-4 border-black bg-white rounded-full cursor-pointer;
+  -webkit-appearance: none;
+  box-shadow: 4px 4px 0 var(--shadow-color);
+  transition: all 0.2s ease;
+}
+
+.neubrutalist-radio:checked {
+  background: var(--primary);
+  box-shadow: 2px 2px 0 var(--shadow-color);
+  transform: translate(2px, 2px);
+  background-image: radial-gradient(white 30%, transparent 31%);
+}
+
+.neubrutalist-radio:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Date Picker */
+.neubrutalist-input[type="date"] {
+  @apply px-4 py-3;
+}
+
+.neubrutalist-input[type="date"]::-webkit-calendar-picker-indicator {
+  background-color: var(--primary);
+  padding: 6px;
+  border: 2px solid black;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+/* Textarea */
+.neubrutalist-input[rows] {
+  resize: vertical;
+  min-height: 100px;
 }

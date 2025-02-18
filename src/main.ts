@@ -25,19 +25,20 @@ const navLinks = document.querySelectorAll<HTMLAnchorElement>(".nav-link");
 // Update active navigation link
 const observerOptions = {
   root: null,
-  rootMargin: "-50% 0px",
+  rootMargin: "-20% 0px",
   threshold: 0,
 };
 
 const observerCallback: IntersectionObserverCallback = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
+      const currentId = entry.target.id;
       navLinks.forEach((link) => link.classList.remove("active"));
-      const activeLink = document.querySelector(
-        `.nav-link[data-section="${entry.target.id}"]`
+      const activeNavLink = document.querySelector(
+        `.nav-link[data-section="${currentId}"]`
       );
-      if (activeLink) {
-        activeLink.classList.add("active");
+      if (activeNavLink) {
+        activeNavLink.classList.add("active");
       }
     }
   });
