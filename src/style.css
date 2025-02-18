@@ -2,15 +2,17 @@
 
 :root {
   --shadow-color: #171717;
-  --primary: #00a67e; /* Rich emerald green */
-  --secondary: #98e2c6; /* Soft mint */
-  --accent: #ffde59; /* Warm yellow */
+  --primary: #008f6d; /* Darkened emerald green for better contrast */
+  --secondary: #7ac2a6; /* Darkened mint for better contrast */
+  --accent: #e6c400; /* Darkened yellow for better contrast */
   --background: #f5f9f7; /* Cool mint white */
   --text: #171717;
 }
 
 body {
   background-color: var(--background);
+  @apply font-sans;
+  font-display: swap;
 }
 
 .neubrutalist-button {
@@ -53,6 +55,28 @@ body {
   border-color: var(--primary);
 }
 
+.neubrutalist-button:focus-visible,
+.nav-link:focus-visible,
+.neubrutalist-input:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Ensure focus styles remain visible even when using mouse */
+.neubrutalist-button:focus,
+.nav-link:focus,
+.neubrutalist-input:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Add focus ring to all interactive elements */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
 .nav-container {
   @apply fixed top-0 w-full z-50 border-b-4 border-black bg-white;
   box-shadow: 0 4px 0 var(--shadow-color);
@@ -60,6 +84,8 @@ body {
 
 .hero-title {
   @apply text-6xl sm:text-7xl font-black;
+  @apply font-sans;
+  font-display: swap;
 }
 
 .hero-title span {
@@ -68,6 +94,8 @@ body {
 
 .section-title {
   @apply text-4xl font-black mb-12;
+  @apply font-sans;
+  font-display: swap;
 }
 
 .skill-tag {
