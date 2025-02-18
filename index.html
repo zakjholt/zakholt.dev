@@ -5,11 +5,191 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>👋 Zak Holt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <div>
-      Hi
-    </div>
+  <body class="font-['Space_Grotesk']">
+    <nav class="nav-container">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16 items-center">
+          <a href="#" class="text-2xl font-black">ZH</a>
+          <div class="hidden sm:flex space-x-8">
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24">
+      <!-- Hero Section -->
+      <section class="min-h-[80vh] flex items-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="animate-on-scroll">
+            <h1 class="hero-title mb-6">
+              Hey! I'm Zak 👋<br/>
+              <span style="color: var(--primary)">Full-Stack Engineer</span>
+            </h1>
+            <p class="text-2xl mb-12 max-w-2xl">
+              I'm passionate about building tools that make peoples' lives a little easier. Currently building the future of SEC filing at Fyler.
+            </p>
+            <div class="flex gap-6">
+              <a href="#contact" class="neubrutalist-button primary">Get in touch</a>
+              <a href="#projects" class="neubrutalist-button secondary">View my work</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-24 bg-white border-y-4 border-black">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title">About Me</h2>
+          <div class="grid md:grid-cols-2 gap-12">
+            <div class="neubrutalist-card animate-on-scroll">
+              <h3 class="text-2xl font-bold mb-4">Technical Leadership</h3>
+              <p class="mb-6">
+                As a Frontend Tech Lead at Pawp, I managed a team of four developers, conducting 1-1's, sprint planning, and driving technical direction. Previously at Aircall, I led a team of six engineers through a major platform migration from AngularJS to React.
+              </p>
+              <p>
+                I believe in fostering a collaborative environment where engineers can grow and deliver their best work.
+              </p>
+            </div>
+            <div class="neubrutalist-card animate-on-scroll">
+              <h3 class="text-2xl font-bold mb-4">Technical Expertise</h3>
+              <p class="mb-6">
+                With experience across the full stack, I specialize in building complex web applications using modern technologies. From real-time collaboration tools to AI-powered platforms, I focus on creating scalable, maintainable solutions.
+              </p>
+              <p>
+                Currently at Fyler, I'm leveraging AI and advanced parsing techniques to revolutionize SEC filing preparation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="neubrutalist-card animate-on-scroll">
+              <h3 class="text-2xl font-bold mb-4">Fyler - SEC Filing Platform</h3>
+              <p class="mb-6">Built an AI-powered platform for SEC filing preparation, featuring real-time compliance checking and automated XBRL tagging. Developed a robust rules-based parsing engine and LLM-powered APIs.</p>
+              <div class="flex gap-3 mb-6 flex-wrap">
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">NextJS</span>
+                <span class="skill-tag">AI/LLM</span>
+              </div>
+              <a href="https://fyler.us" target="_blank" class="neubrutalist-button inline-block">View Project</a>
+            </div>
+
+            <div class="neubrutalist-card animate-on-scroll">
+              <h3 class="text-2xl font-bold mb-4">Pawp - Veterinary Telehealth Platform</h3>
+              <p class="mb-6">Led the development of real-time video chat tooling for veterinary telehealth, enabling thousands of consultations. Built a comprehensive rich text editing system for medical note-taking.</p>
+              <div class="flex gap-3 mb-6 flex-wrap">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">WebRTC</span>
+                <span class="skill-tag">ProseMirror</span>
+                <span class="skill-tag">Real-time</span>
+              </div>
+              <a href="https://pawp.com" target="_blank" class="neubrutalist-button inline-block">View Project</a>
+            </div>
+
+            <div class="neubrutalist-card animate-on-scroll">
+              <h3 class="text-2xl font-bold mb-4">Enlitic - ML Training Platform</h3>
+              <p class="mb-6">Developed sophisticated tooling for labeling and grading radiological ML training data, contributing to the advancement of AI in healthcare diagnostics.</p>
+              <div class="flex gap-3 mb-6 flex-wrap">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Healthcare</span>
+              </div>
+              <a href="https://enlitic.com" target="_blank" class="neubrutalist-button inline-block">View Project</a>
+            </div>
+
+            <div class="neubrutalist-card animate-on-scroll">
+              <h3 class="text-2xl font-bold mb-4">Aircall - Platform Migration</h3>
+              <p class="mb-6">Led the migration of a legacy AngularJS platform to React, significantly improving maintainability. Managed a team of six engineers and established modern development practices.</p>
+              <div class="flex gap-3 mb-6 flex-wrap">
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">AngularJS</span>
+                <span class="skill-tag">Team Lead</span>
+                <span class="skill-tag">Migration</span>
+              </div>
+              <a href="https://aircall.io" target="_blank" class="neubrutalist-button inline-block">View Project</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="py-24 bg-white border-y-4 border-black">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="skill-tag animate-on-scroll">TypeScript</div>
+            <div class="skill-tag animate-on-scroll">JavaScript</div>
+            <div class="skill-tag animate-on-scroll">Python</div>
+            <div class="skill-tag animate-on-scroll">React</div>
+            <div class="skill-tag animate-on-scroll">NextJS</div>
+            <div class="skill-tag animate-on-scroll">Node.js</div>
+            <div class="skill-tag animate-on-scroll">Django</div>
+            <div class="skill-tag animate-on-scroll">Tailwind</div>
+            <div class="skill-tag animate-on-scroll">ProseMirror</div>
+            <div class="skill-tag animate-on-scroll">Docker</div>
+            <div class="skill-tag animate-on-scroll">AWS</div>
+            <div class="skill-tag animate-on-scroll">Terraform</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-24">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="section-title">Get in Touch</h2>
+          <div class="max-w-2xl mx-auto">
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label class="block font-bold mb-2">Name</label>
+                <input type="text" name="name" class="neubrutalist-input" required>
+              </div>
+              <div>
+                <label class="block font-bold mb-2">Email</label>
+                <input type="email" name="email" class="neubrutalist-input" required>
+              </div>
+              <div>
+                <label class="block font-bold mb-2">Message</label>
+                <textarea name="message" rows="4" class="neubrutalist-input" required></textarea>
+              </div>
+              <button type="submit" class="neubrutalist-button primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-black text-white py-12 border-t-4 border-black">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-center md:text-left mb-6 md:mb-0">
+            <h3 class="text-2xl font-black">Zak Holt</h3>
+            <p class="text-gray-400">Software Developer</p>
+          </div>
+          <div class="flex space-x-6">
+            <a href="https://github.com/zakjholt" target="_blank" class="neubrutalist-button secondary">GitHub</a>
+            <a href="mailto:zak.j.holt@proton.me" class="neubrutalist-button primary">Email</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
